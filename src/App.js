@@ -11,8 +11,10 @@ const people = [
 
 const element = <ol>
   {people.map(person =>(
-    <li>{person.name}</li>
+    <li key={person.name}>{person.name}</li>
   ))}
   </ol>
+
+//debugger
 
 ReactDOM.render(element, document.getElementById('root'))
