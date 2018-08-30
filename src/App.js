@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 
 //React.createElement( /* type */, /* props */, /* content */ );
 
-class ContactList extends React.Component {
+class ContactList extends Component {
   render() {
     const people = [
       { name: 'Michael' },
