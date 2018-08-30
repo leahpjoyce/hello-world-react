@@ -1,51 +1,39 @@
-/* 2 Ways sample Declaring Components in React
-Source: Rendering UI with React 2. Creating Elements and JSX
-*/
-
-/*import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
-
-
-class ContactList extends Component {
-  render() {
-    const people = [
-      { name: 'Michael' },
-      { name: 'Ryan' },
-      { name: 'Tyler' }
-    ]
-
-    return <ol>
-      {people.map(person =>(
-        <li key={person.name}>{person.name}</li>
-      ))}
-      </ol>
-
-  }
-}
-*/
-
-
-import React from 'react'
-import ReactDOM from 'react-dom'
-
+import React, { Component } from 'react';
 
 class ContactList extends React.Component {
   render() {
-    const people = [
-      { name: 'Michael' },
-      { name: 'Ryan' },
-      { name: 'Tyler' }
-    ]
+    const people = this.props.contacts
 
     return <ol>
-      {people.map(person =>(
+      {people.map(person => (
         <li key={person.name}>{person.name}</li>
       ))}
-      </ol>
-
+    </ol>
   }
 }
 
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <ContactList contacts={[
+          { name: 'Michael' },
+          { name: 'Ryan' },
+          { name: 'Tyler' }
+        ]}/>
+        <ContactList contacts={[
+          { name: 'Amanda' },
+          { name: 'Richard' },
+          { name: 'Geoff' }
+        ]}/>
+        <ContactList contacts={[
+          { name: 'John' },
+          { name: 'Sebastian' },
+          { name: 'Cliff' }
+        ]}/>
+      </div>
+    );
+  }
+}
 
-ReactDOM.render(
-  <ContactList/>, document.getElementById('root'))
+export default App;
