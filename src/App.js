@@ -1,39 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class ContactList extends React.Component {
-  render() {
-    const people = this.props.contacts
-
-    return <ol>
-      {people.map(person => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ol>
-  }
-}
-
-class App extends Component {
-  render() {
+function Sum(props) {
     return (
-      <div className="App">
-        <ContactList contacts={[
-          { name: 'Michael' },
-          { name: 'Ryan' },
-          { name: 'Tyler' }
-        ]}/>
-        <ContactList contacts={[
-          { name: 'Amanda' },
-          { name: 'Richard' },
-          { name: 'Geoff' }
-        ]}/>
-        <ContactList contacts={[
-          { name: 'John' },
-          { name: 'Sebastian' },
-          { name: 'Cliff' }
-        ]}/>
-      </div>
+      <h1>{props.a} + {props.b} = {props.a + props.b}</h1>
     );
-  }
 }
 
-export default App;
+Sum.propTypes = {
+  a: PropTypes.number.isRequired,
+  b: PropTypes.number.isRequired,
+};
+
+export default Sum;
